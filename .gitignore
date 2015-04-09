@@ -1,0 +1,11 @@
+# Python compiled byte code
+*.pyc
+
+# SQLite3 database
+*.sqlite3
+
+# Uglified JavaScript
+dist/
+
+# Staticfiles
+staticfiles/
