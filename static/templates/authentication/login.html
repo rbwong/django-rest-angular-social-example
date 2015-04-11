@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+
+      <button type="button" class="btn btn-primary btn-large" data-ng-show="!vm.isAuthenticated" data-ng-disabled="!vm.facebookReady" data-ng-click="vm.login()">Login with Facebook</button>
+      <button type="button" class="btn btn-danger btn-large" data-ng-show="vm.isAuthenticated" data-ng-disabled="!vm.facebookReady" data-ng-click="vm.logout()">Logout</button>
+
+      <div>
+        <debug val="vm.user"></debug>
+      </div>
+
+    </div>
+  </div>
+</div>

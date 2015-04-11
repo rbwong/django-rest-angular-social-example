@@ -1,0 +1,172 @@
+.no-posts-here {
+  text-align: center;
+}
+
+.post {}
+
+.post .post__meta {
+  font-weight: bold;
+  text-align: right;
+  padding-bottom: 19px;
+}
+
+.post .post__meta a:hover {
+  text-decoration: none;
+}
+
+.btn-add-new-post {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+
+p {
+  line-height: 2rem;
+}
+
+.header {
+  color: #ee6e73;
+  font-weight: 300;
+  text-align: right;
+}
+
+.slots {
+  font-size: 18px;
+  text-align: right;
+  color: gray;
+}
+
+.preview-slots {
+  font-size: 14px;
+}
+
+.parallax-container {
+  padding: 20px 0px;
+  min-height: 160px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+
+.icon-block {
+  padding: 0 15px;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.avatar .title {
+  text-decoration: none;
+  color: #534540;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 6px 2px 0 0px;
+}
+
+.avatar .description {
+  color: #999999;
+  font-size: 17px;
+  margin: 5px 0 0 0px;
+  display: block;
+  line-height: 20px;
+}
+
+.posts--date {
+  color: #bbbbbb;
+}
+
+.posts--date--name {
+  color: #534540;
+  display: inline;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 8px 0 0;
+}
+
+.collection .collection-item {
+  background-color: #fff;
+  line-height: 1.2rem;
+  padding: 10px 20px;
+  margin: 0px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.show-hidden-posts {
+  display: block;
+  text-align: center;
+  font-size: 17px;
+}
+
+.advertisement img {
+  max-height: 100px;
+  line-height: 1px;
+}
+
+.advertisement .text {
+  line-height: 65px;
+  font-size: 20px;
+  text-align: left;
+  margin: 0px 30px;
+}
+
+.modal-content p{
+  color: #474747;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.promo i {
+  color: #ee6e73;
+  font-size: 7rem;
+  display: block;
+}
+
+nav a.button-collapse {
+  float: left;
+  position: relative;
+  z-index: 1;
+  height: 56px;
+}
+
+.brand-logo {
+  margin: 10px 0px;
+}
+
+.collection {
+  border: none;
+  border-radius: 5px;
+}
+
+.collection-item:hover {
+  background: #fcf5e2;
+}

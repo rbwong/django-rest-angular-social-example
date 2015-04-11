@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+  <title>Product hunt</title>
+
+  <base href="/" />
+
+  {% include 'stylesheets.html' %}
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 ng-view"></div>
+    </div>
+  </div>
+
+  {% include 'javascripts.html' %}
+</body>
+</html>

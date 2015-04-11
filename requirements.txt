@@ -1,0 +1,14 @@
+Django==1.7.7
+PyJWT==1.0.1
+django-appconf==1.0.1
+django-braces==1.4.0
+django-compressor==1.4
+django-oauth-toolkit==0.8.0
+django-rest-framework-social-oauth2==0.0.3
+djangorestframework==3.1.1
+oauthlib==0.7.2
+python-openid==2.2.5
+python-social-auth==0.2.3
+requests==2.6.0
+requests-oauthlib==0.4.2
+six==1.9.0

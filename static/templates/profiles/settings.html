@@ -1,0 +1,31 @@
+<div class="row" ng-show="vm.profile">
+  <form class="col s12" class="settings" ng-submit="vm.update()">
+    <h5>Profile</h5>
+    <div class="row">
+      <div class="col s12">
+        <label for="settings__email">Email</label>
+        <input type="text" class="validate" id="settings__email" ng-model="vm.profile.email" />
+      </div>
+      <div class="col s12">
+        <label for="settings__password">New Password</label>
+        <input type="password" class="validate" id="settings__password" ng-model="vm.profile.password"  />
+      </div>
+      <div class="col s12">
+        <label for="settings__confirm-password">Confirm Password</label>
+        <input type="password" class="validate" id="settings__confirm-password" ng-model="vm.profile.confirm_password" />
+      </div>
+      <div class="col s12">
+        <label for="settings__username">Username</label>
+        <input type="text" class="validate" id="settings__username" ng-model="vm.profile.username"  />
+      </div>
+      <div class="col s12">
+        <label for="settings__tagline">Tagline</label>
+        <textarea class="materialize-textarea" id="settings__tagline" ng-model="vm.profile.tagline" />
+      </div>
+      <div class="col s12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger pull-right" ng-click="vm.destroy()">Delete Account</button>
+      </div>
+    </div>
+  </form>
+</div>

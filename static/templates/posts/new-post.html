@@ -1,0 +1,26 @@
+<div class="row">
+  <form class="col s12" ng-submit="vm.submit()">
+    <h5>Post Discovery</h5>
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="text" class="validate" id="post_name" ng-model="vm.name" />
+        <label for="post_name">Name</label>
+      </div>
+      <div class="col s12">
+        <label>Country</label>
+        <select ng-model="vm.country" class="browser-default" >
+          <option ng-selected="{{country.id == vm.country}}"
+            ng-repeat="country in vm.countries"
+            value="{{country.id}}">
+            {{country.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button type="submit"  class="waves-effect waves-green btn-flat modal-action modal-close">Submit</button>
+  </form>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+  });
+</script>

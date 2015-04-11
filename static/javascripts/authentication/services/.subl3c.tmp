@@ -1,0 +1,141 @@
+/**
+* Authentication
+* @namespace producthunt.authentication.services
+*/
+(function () {
+  'use strict';
+
+  angular
+    .module('producthunt.authentication.services')
+    .factory('Authentication', Authentication);
+
+  Authentication.$inject = ['$cookies', '$http', 'Facebook'];
+
+  /**
+  * @namespace Authentication
+  * @returns {Factory}
+  */
+  function Authentication($cookies, $http, Facebook) {
+    /**
+    * @name Authentication
+    * @desc The Factory to be returned
+    */
+    var Authentication = {
+      getAuthenticatedAccount: getAuthenticatedAccount,
+      isAuthenticated: isAuthenticated,
+      login: login,
+      logout: logout,
+      setAuthenticatedAccount: setAuthenticatedAccount,
+      unauthenticate: unauthenticate
+    };
+
+    return Authentication;
+
+    ////////////////////
+
+    /**
+     * @name getAuthenticatedAccount
+     * @desc Return the currently authenticated account
+     * @returns {object|undefined} Account if authenticated, else `undefined`
+     * @memberOf producthunt.authentication.services.Authentication
+     */
+    function getAuthenticatedAccount() {
+      if (!$cookies.authenticatedAccount) {
+        return;
+      }
+
+      return JSON.parse($cookies.authenticatedAccount);
+    }
+
+    /**
+     * @name isAuthenticated
+     * @desc Check if the current user is authenticated
+     * @returns {boolean} True is user is authenticated, else false.
+     * @memberOf producthunt.authentication.services.Authentication
+     */
+    function isAuthenticated() {
+      return !!$cookies.authenticatedAccount;
+    }
+
+    /**
+     * @name login
+     * @desc Try to log in with email `email` and password `password`
+     * @param {string} email The email entered by the user
+     * @param {string} password The password entered by the user
+     * @returns {Promise}
+     * @memberOf producthunt.authentication.services.Authentication
+     */
+    function login() {
+      return Facebook.login(function(response) {}).then(loginSuccessFn, loginErrorFn);
+
+      /**
+       * @name loginSuccessFn
+       * @desc Set the authenticated account and redirect to index
+       */
+      function loginSuccessFn(data, status, headers, config) {
+        console.log('facebook ' + data.authResponse.accessToken);
+
+
+        Authentication.setAuthenticatedAccount(data.data);
+      }
+
+      /**
+       * @name loginErrorFn
+       * @desc Log "Epic failure!" to the console
+       */
+      function loginErrorFn(data, status, headers, config) {
+        console.error('Epic failure!');
+      }
+    }
+
+    /**
+     * @name logout
+     * @desc Try to log the user out
+     * @returns {Promise}
+     * @memberOf producthunt.authentication.services.Authentication
+     */
+    function logout() {
+      return Facebook.logout().then(logoutSuccessFn, logoutErrorFn);
+
+      /**
+       * @name logoutSuccessFn
+       * @desc Unauthenticate and redirect to index with page reload
+       */
+      function logoutSuccessFn(data, status, headers, config) {
+        Authentication.unauthenticate();
+
+        window.location = '/';
+      }
+
+      /**
+       * @name logoutErrorFn
+       * @desc Log "Epic failure!" to the console
+       */
+      function logoutErrorFn(data, status, headers, config) {
+        console.error('Epic failure!');
+      }
+    }
+
+    /**
+     * @name setAuthenticatedAccount
+     * @desc Stringify the account object and store it in a cookie
+     * @param {Object} user The account object to be stored
+     * @returns {undefined}
+     * @memberOf producthunt.authentication.services.Authentication
+     */
+    function setAuthenticatedAccount(account) {
+      $cookies.authenticatedAccount = JSON.stringify(account);
+    }
+
+    /**
+     * @name unauthenticate
+     * @desc Delete the cookie where the user object is stored
+     * @returns {undefined}
+     * @memberOf producthunt.authentication.services.Authentication
+     */
+    function unauthenticate() {
+      delete $cookies.authenticatedAccount;
+    }
+
+  }
+})();
